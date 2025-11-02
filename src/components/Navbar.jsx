@@ -1,6 +1,8 @@
+// src/components/NavBar.jsx
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import useWishlist from "../hooks/useWishlist";
+import logo from "../assets/logo.png"; // <-- your logo file
 
 const navLink = ({ isActive }) =>
   `inline-flex items-center h-10 transition-colors hover:text-brand ${
@@ -14,11 +16,9 @@ export default function NavBar() {
   return (
     <header className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-slate-200">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2 font-display text-lg">
-          <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg  text-white">
-            <img src="src/assets/logo.png" alt="" className="bg-cover bg-center h-auto w-auto" />
-          </div>
-          <span>Asucon Properties & Farms</span>
+        <Link to="/" className="flex items-center gap-2">
+          <img src={logo} alt="Asucon logo" className="h-8 w-auto" />
+          <span className="hidden sm:block font-display text-lg">Asucon Properties & Farms</span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-6">
@@ -37,14 +37,8 @@ export default function NavBar() {
         </nav>
 
         <div className="md:hidden">
-          <button
-            onClick={() => setOpen(v => !v)}
-            aria-label="Menu"
-            aria-expanded={open}
-            className="p-2 rounded-md border border-slate-200"
-          >
-            ☰
-          </button>
+          <button onClick={() => setOpen(v => !v)} aria-label="Menu" aria-expanded={open}
+                  className="p-2 rounded-md border border-slate-200">☰</button>
         </div>
       </div>
 
