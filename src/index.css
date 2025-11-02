@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body, #root { height: 100%; }
+  body { @apply font-sans text-slate-800 bg-white; }
+  h1, h2, h3, h4 { @apply font-display tracking-tight; }
+}
+
+@layer components {
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-lg bg-brand px-5 py-2.5 text-white font-medium shadow hover:bg-brand-700 transition; }
+  .btn-outline { @apply inline-flex items-center gap-2 rounded-lg border border-brand text-brand px-5 py-2.5 font-medium hover:bg-brand/10 transition; }
+  .card { @apply bg-white rounded-xl border border-slate-200 shadow-card p-5 hover:shadow-lg transition; }
+  .pill { @apply inline-flex items-center rounded-full bg-accent/20 text-brand px-3 py-1 text-xs font-medium; }
+}
