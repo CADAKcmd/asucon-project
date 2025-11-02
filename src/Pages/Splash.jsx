@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import logo from "../assets/logo.png";
 
-const DURATION = 4000; // ms — adjust to taste
+const DURATION = 4000; // ms
 
 export default function Splash() {
   const navigate = useNavigate();
@@ -18,10 +19,13 @@ export default function Splash() {
 
   return (
     <div className="relative h-screen w-screen bg-gradient-to-b from-white to-slate-50 overflow-hidden">
-      {/* Soft pulsing rings */}
+      {/* Soft pulsing rings (decorative) */}
       <motion.div
-        className="absolute inset-0 flex items-center justify-center"
-        initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4 }}
+        className="absolute inset-0 flex items-center justify-center pointer-events-none"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.4 }}
+        aria-hidden="true"
       >
         <motion.span
           className="absolute h-44 w-44 rounded-full bg-brand/10"
@@ -39,22 +43,15 @@ export default function Splash() {
 
       {/* Center logo */}
       <div className="relative z-10 h-full flex flex-col items-center justify-center px-6">
-        {/* Replace this block with your real logo image if you have one */}
-        {/* Example: 
-          import logo from '../assets/logo.png';
-          <motion.img src={logo} alt="Asucon logo" className="h-16"
-            initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
-          />
-        */}
-        <motion.div
-          className="h-16 w-16 rounded-xl bg-brand text-white grid place-items-center text-2xl font-display shadow-lg"
-          initial={{ scale: 0.9, opacity: 0 }}
-          animate={{ scale: [0.9, 1.08, 1], opacity: 1, rotate: [0, 2, 0] }}
+        <motion.img
+          src={logo}
+          alt="Asucon logo"
+          draggable="false"
+          className="h-20 md:h-28 w-auto drop-shadow-xl select-none"
+          initial={{ opacity: 0, scale: 0.9, rotate: 0, y: 8 }}
+          animate={{ opacity: 1, scale: [0.9, 1.08, 1], rotate: [0, 2, -1, 0], y: 0 }}
           transition={{ duration: 1.2, times: [0, 0.6, 1], ease: "easeOut" }}
-          aria-label="Asucon logo"
-        >
-          A
-        </motion.div>
+        />
 
         {/* Progress bar (no text) */}
         <div className="mt-8 w-64 h-1.5 rounded-full bg-slate-200 overflow-hidden">

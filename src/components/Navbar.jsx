@@ -15,7 +15,9 @@ export default function NavBar() {
     <header className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-slate-200">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2 font-display text-lg">
-          <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-brand text-white">A</span>
+          <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg  text-white">
+            <img src="src/assets/logo.png" alt="" className="bg-cover bg-center h-auto w-auto" />
+          </div>
           <span>Asucon Properties & Farms</span>
         </Link>
 
